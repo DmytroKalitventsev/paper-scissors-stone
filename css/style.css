@@ -3,3 +3,42 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.player {
+	padding: 20px;
+	border: 2px solid silver;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.player button {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.turns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.turns>div {
+	padding: 10px;
+	margin: 3px;
+	background: silver;
+	cursor: pointer;
+}
+
+.turns>div:hover {
+	background: tomato;
+}
