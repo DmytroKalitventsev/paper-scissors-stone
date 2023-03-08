@@ -12,22 +12,52 @@
 <body>
 	<div class="container">
 		<div class="player">
-			<div class="turns">
-				<div>Paper</div>
-				<div>Scissors</div>
-				<div>Stone</div>
+			<div class="game-items">
+				<div class="game-item">
+					<img class="game-item__img" src="./img/paper.png" alt="game-item">
+					<p class="game-item__text">Paper</p>
+				</div>
+				<div class="game-item">
+					<img class="game-item__img" src="./img/scissors.png" alt="game-item">
+					<p class="game-item__text">Scissors</p>
+				</div>
+				<div class="game-item">
+					<img class="game-item__img" src="./img/stone.png" alt="game-item">
+					<p class="game-item__text">Stone</p>
+				</div>
 			</div>
-			<p>Player1: Stone</p>
+			<p class="player__choice">
+				<span class="player__name">Player1:</span>
+				<span class="player__game-item">Paper</span>
+			</p>
 		</div>
 		<div class="player">
-			<div class="turns">
-				<div>Paper</div>
-				<div>Scissors</div>
-				<div>Stone</div>
+			<div class="game-items">
+				<div class="game-item">
+					<img class="game-item__img" src="./img/paper.png" alt="game-item">
+					<p class="game-item__text">Paper</p>
+				</div>
+				<div class="game-item">
+					<img class="game-item__img" src="./img/scissors.png" alt="game-item">
+					<p class="game-item__text">Scissors</p>
+				</div>
+				<div class="game-item">
+					<img class="game-item__img" src="./img/stone.png" alt="game-item">
+					<p class="game-item__text">Stone</p>
+				</div>
 			</div>
-			<p>Player2: Paper</p>
+			<p class="player__choice">
+				<span class="player__name">Player2:</span>
+				<span class="player__game-item">Stone</span>
+			</p>
 		</div>
-		<button>Get result</button>
+		<div class="result">
+			<button class="result__button">Get result</button>
+			<p class="result__text-block">
+				<span class="result__text">Result:</span>
+				<span class="result__winner"></span>
+			</p>
+		</div>
 	</div>
 
 	<script src="./js/main.js"></script>
