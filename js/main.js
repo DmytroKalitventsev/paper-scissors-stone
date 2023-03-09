@@ -15,35 +15,46 @@ let resultButton = doc.querySelector('.result__button');
 let resultWinner = doc.querySelector('.result__winner');
 let resetGame = doc.querySelector('.result__reset');
 
+let choiceOnePlayer = '';
+let choiceTwoPlayer = '';
+
 let paper = 'Paper';
 let scissors = 'Scissors';
 let stone = 'Stone';
 
 paperPlayer1.onclick = function() {
 	choicePlayer1.innerText = paper;
+	choiceOnePlayer = paper;
 }
 scissorsPlayer1.onclick = function() {
 	choicePlayer1.innerText = scissors;
+	choiceOnePlayer = scissors;
 }
 stonePlayer1.onclick = function() {
 	choicePlayer1.innerText = stone;
+	choiceOnePlayer = stone;
 }
 
 paperPlayer2.onclick = function() {
 	choicePlayer2.innerText = paper;
+	choiceTwoPlayer = paper;
 }
 scissorsPlayer2.onclick = function() {
 	choicePlayer2.innerText = scissors;
+	choiceTwoPlayer = scissors;
 }
 stonePlayer2.onclick = function() {
 	choicePlayer2.innerText = stone;
+	choiceTwoPlayer = stone;
 }
 
 resultButton.onclick = function() {
-	if (choicePlayer1.innerText == paper && choicePlayer2.innerText == scissors) {
-		resultWinner.innerText = 'Player2';
-	} else {
+	if (choiceOnePlayer == paper && choiceTwoPlayer == stone || choiceOnePlayer == scissors && choiceTwoPlayer == paper || choiceOnePlayer == stone && choiceTwoPlayer == scissors) {
 		resultWinner.innerText = 'Player1';
+	} else if (choiceOnePlayer == choiceTwoPlayer) {
+		resultWinner.innerText = 'Draw';
+	} else {
+		resultWinner.innerText = 'Player2';
 	}
 }
 
