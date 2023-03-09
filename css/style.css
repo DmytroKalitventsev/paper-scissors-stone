@@ -28,30 +28,34 @@ body {
 }
 
 .player__choice {
-	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	width: 200px;
 	padding: 20px 20px 0;
-}
-
-.player__choice::before {
-	content: "";
-	position: absolute;
-	top: 1px;
-	left: -115px;
-	height: 1px;
-	background-color: #302e2f;
-	width: 400px;
 }
 
 .player__name {
 	font-weight: bold;
+	margin-right: 10px;
 }
 
-.player__game-item {}
+.player__choice-item {}
 
 .game-items {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
+	position: relative;
+}
+
+.game-items::before {
+	content: "";
+	position: absolute;
+	bottom: -2px;
+	left: 20px;
+	height: 1px;
+	background-color: #302e2f;
+	width: 395px;
 }
 
 .game-item {
@@ -60,6 +64,7 @@ body {
 	margin: 20px;
 	cursor: pointer;
 	transition: 0.3s ease 0s;
+
 }
 
 .game-item:hover {
@@ -102,7 +107,7 @@ body {
 	white-space: nowrap;
 	cursor: pointer;
 	transition: 0.2s ease 0s;
-	margin: 0 20px 20px;
+	margin: 0 0 20px 20px;
 }
 
 .result__button:active {
@@ -135,7 +140,7 @@ body {
 	border-radius: 20px;
 	padding: 20px;
 	width: 100%;
-	margin: 0 20px 20px 0;
+	margin: 0 20px 20px 20px;
 	white-space: nowrap;
 }
 
