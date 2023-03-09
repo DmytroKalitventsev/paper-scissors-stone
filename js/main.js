@@ -1,9 +1,16 @@
 let doc = document;
 
-let gameItemsPlayer1 = doc.querySelectorAll('.player_1 .game-item');
-let gameItemsPlayer2 = doc.querySelectorAll('.player_2 .game-item');
+let paperPlayer1 = doc.querySelector('.player_1 .game-item_paper');
+let scissorsPlayer1 = doc.querySelector('.player_1 .game-item_scissors');
+let stonePlayer1 = doc.querySelector('.player_1 .game-item_stone');
+
+let paperPlayer2 = doc.querySelector('.player_2 .game-item_paper');
+let scissorsPlayer2 = doc.querySelector('.player_2 .game-item_scissors');
+let stonePlayer2 = doc.querySelector('.player_2 .game-item_stone');
+
 let choicePlayer1 = doc.querySelector('.player_1 .player__choice-item');
 let choicePlayer2 = doc.querySelector('.player_2 .player__choice-item');
+
 let resultButton = doc.querySelector('.result__button');
 let resultWinner = doc.querySelector('.result__winner');
 let resetGame = doc.querySelector('.result__reset');
@@ -12,23 +19,33 @@ let paper = 'Paper';
 let scissors = 'Scissors';
 let stone = 'Stone';
 
-let winner = '';
-let draw = true;
-let isCorrect = true;
-
-for (let i = 0; i < gameItemsPlayer1.length; i++) {
-	gameItemsPlayer1[i].onclick = function () {
-		choicePlayer1.innerText = gameItemsPlayer1[i].innerText;
-	}
+paperPlayer1.onclick = function() {
+	choicePlayer1.innerText = paper;
 }
-for (let i = 0; i < gameItemsPlayer2.length; i++) {
-	gameItemsPlayer2[i].onclick = function () {
-		choicePlayer2.innerText = gameItemsPlayer2[i].innerText;
-	}
+scissorsPlayer1.onclick = function() {
+	choicePlayer1.innerText = scissors;
+}
+stonePlayer1.onclick = function() {
+	choicePlayer1.innerText = stone;
 }
 
+paperPlayer2.onclick = function() {
+	choicePlayer2.innerText = paper;
+}
+scissorsPlayer2.onclick = function() {
+	choicePlayer2.innerText = scissors;
+}
+stonePlayer2.onclick = function() {
+	choicePlayer2.innerText = stone;
+}
 
-
+resultButton.onclick = function() {
+	if (choicePlayer1.innerText == paper && choicePlayer2.innerText == scissors) {
+		resultWinner.innerText = 'Player2';
+	} else {
+		resultWinner.innerText = 'Player1';
+	}
+}
 
 // let winner = '';
 // let resultText = '';

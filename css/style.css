@@ -51,7 +51,7 @@ body {
 .game-items::before {
 	content: "";
 	position: absolute;
-	bottom: -2px;
+	bottom: -1px;
 	left: 20px;
 	height: 1px;
 	background-color: #302e2f;
@@ -75,7 +75,14 @@ body {
 	transform: scale(0.9);
 }
 
-.game-item__wrap-img {}
+.game-item__wrap-img {
+	max-height: 100px;
+	max-width: 105px;
+}
+
+.game-item_paper .game-item__wrap-img {
+	max-width: 115px;
+}
 
 .game-item__img {
 	width: 100%;
