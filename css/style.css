@@ -26,10 +26,12 @@ body {
 	border: 3px solid #302e2f;
 	border-radius: 20px;
 }
+
 .player__choice {
 	position: relative;
 	padding: 20px 20px 0;
 }
+
 .player__choice::before {
 	content: "";
 	position: absolute;
@@ -39,9 +41,11 @@ body {
 	background-color: #302e2f;
 	width: 400px;
 }
+
 .player__name {
 	font-weight: bold;
 }
+
 .player__game-item {}
 
 .game-items {
@@ -57,19 +61,24 @@ body {
 	cursor: pointer;
 	transition: 0.3s ease 0s;
 }
+
 .game-item:hover {
 	transform: scale(1.1);
 }
+
 .game-item:active {
 	transform: scale(0.9);
 }
+
 .game-item__wrap-img {}
+
 .game-item__img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
 }
+
 .game-item__text {
 	text-align: center;
 	padding: 20px 20px 0;
@@ -80,31 +89,58 @@ body {
 	align-items: center;
 	justify-content: flex-start;
 }
+
 .result__button {
 	display: inline-block;
 	border: 3px solid #302e2f;
 	border-radius: 20px;
-	padding: 20px;
 	background: #fff;
-	cursor: pointer;
-	margin: 0 20px 20px;
+	padding: 20px;
+	color: #302e2f;
 	font-size: 20px;
 	font-weight: bold;
 	white-space: nowrap;
-	color: #302e2f;
+	cursor: pointer;
 	transition: 0.2s ease 0s;
+	margin: 0 20px 20px;
 }
+
 .result__button:active {
 	transform: scale(0.9);
 }
+
+.result__reset {
+	display: inline-block;
+	border: none;
+	background: transparent;
+	transition: 0.2s ease 0s;
+	cursor: pointer;
+	width: 170px;
+	margin: 0 20px 20px 0;
+}
+
+.result__reset:active {
+	transform: scale(0.9);
+}
+
+.result__reset-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
 .result__text-block {
 	border: 3px solid #302e2f;
 	border-radius: 20px;
 	padding: 20px;
 	width: 100%;
 	margin: 0 20px 20px 0;
+	white-space: nowrap;
 }
+
 .result__text {}
+
 .result__winner {
 	font-weight: bold;
 }
