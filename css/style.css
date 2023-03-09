@@ -84,10 +84,11 @@ body {
 	border: 3px solid #302e2f;
 	border-radius: 20px;
 	padding: 20px;
-	background: transparent;
+	background: #fff;
 	cursor: pointer;
 	margin: 0 20px 20px;
 	font-size: 20px;
+	font-weight: bold;
 	white-space: nowrap;
 	color: #302e2f;
 	transition: 0.2s ease 0s;
@@ -102,7 +103,7 @@ body {
 	width: 100%;
 	margin: 0 20px 20px 0;
 }
-.result__text {
+.result__text {}
+.result__winner {
 	font-weight: bold;
 }
-.result__winner {}
