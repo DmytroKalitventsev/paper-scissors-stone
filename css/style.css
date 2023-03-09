@@ -63,6 +63,7 @@ body {
 .game-item:active {
 	transform: scale(0.9);
 }
+.game-item__wrap-img {}
 .game-item__img {
 	width: 100%;
 	height: 100%;
