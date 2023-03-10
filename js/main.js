@@ -6,6 +6,9 @@ let gameItemPlayer2 = doc.querySelectorAll('.player_2 .game-item');
 let choicePlayer1 = doc.querySelector('.player_1 .player__choice-item');
 let choicePlayer2 = doc.querySelector('.player_2 .player__choice-item');
 
+let counterWinnerPlayer1 = doc.querySelector('.counter__player_1 .counter__player-count');
+let counterWinnerPlayer2 = doc.querySelector('.counter__player_2 .counter__player-count');
+
 let resultButton = doc.querySelector('.result__button');
 let resultWinner = doc.querySelector('.result__winner');
 let resetGame = doc.querySelector('.result__reset');
@@ -18,6 +21,9 @@ let gameItems = [
 let paper = gameItems[0];
 let scissors = gameItems[1];
 let stone = gameItems[2];
+
+let counterPlayer1 = 0;
+let counterPlayer2 = 0;
 
 startGame();
 
@@ -42,6 +48,18 @@ function showResultGame(choicePlayer1, choicePlayer2, resultWinner) {
 		if (!choicePlayer1.innerText || !choicePlayer2.innerText) {
 			resultWinner.innerText = 'Not selected';
 		}
+		counterWinnerPlayer();
+	}
+}
+
+function counterWinnerPlayer() {
+	if (resultWinner.innerText == 'Player1 Win!') {
+		counterPlayer1++;
+		counterWinnerPlayer1.innerText = counterPlayer1;
+	}
+	if (resultWinner.innerText == 'Player2 Win!') {
+		counterPlayer2++;
+		counterWinnerPlayer2.innerText = counterPlayer2;
 	}
 }
 
@@ -50,6 +68,10 @@ function resetGameValues(buttonReset, choicePlayer1, choicePlayer2, resultWinner
 		choicePlayer1.innerText = '';
 		choicePlayer2.innerText = '';
 		resultWinner.innerText = '';
+		counterWinnerPlayer1.innerText = '0';
+		counterWinnerPlayer2.innerText = '0';
+		counterPlayer1 = 0;
+		counterPlayer2 = 0;
 	}
 }
 
