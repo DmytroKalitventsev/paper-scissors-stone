@@ -15,35 +15,34 @@ let gameItems = [
 	'Scissors',
 	'Stone'
 ]
-
 let paper = gameItems[0];
 let scissors = gameItems[1];
 let stone = gameItems[2];
 
-runGame();
+startGame();
 
 function showChoicePlayer(gameItemPlayer, choicePlayer, gameItems) {
-	for (let i = 0; i < gameItemPlayer1.length; i++) {
+	for (let i = 0; i < gameItemPlayer.length; i++) {
 		gameItemPlayer[i].onclick = function () {
 			choicePlayer.innerText = gameItems[i];
 		}
 	}
 }
 
-function getResultGame(choicePlayer1, choicePlayer2) {
+function showResultGame(choicePlayer1, choicePlayer2) {
 	resultButton.onclick = function () {
 		if (choicePlayer1.innerText == paper && choicePlayer2.innerText == stone || choicePlayer1.innerText == scissors && choicePlayer2.innerText == paper || choicePlayer1.innerText == stone && choicePlayer2.innerText == scissors) {
 			resultWinner.innerText = 'Player1 Win!';
-		} else if (choicePlayer1.innerText == choicePlayer2.innerText) {
-			resultWinner.innerText = 'Draw';
 		} else {
 			resultWinner.innerText = 'Player2 Win!';
 		}
+		if (choicePlayer1.innerText == choicePlayer2.innerText) {
+			resultWinner.innerText = 'Draw!';
+		}
+		if (!choicePlayer1.innerText || !choicePlayer2.innerText) {
+			resultWinner.innerText = 'Not selected';
+		}
 	}
-}
-
-function showResultGame() {
-
 }
 
 function resetGameValues(buttonReset, choicePlayer1, choicePlayer2, resultWinner) {
@@ -54,35 +53,9 @@ function resetGameValues(buttonReset, choicePlayer1, choicePlayer2, resultWinner
 	}
 }
 
-function runGame() {
+function startGame() {
 	showChoicePlayer(gameItemPlayer1, choicePlayer1, gameItems);
 	showChoicePlayer(gameItemPlayer2, choicePlayer2, gameItems);
-	getResultGame(choicePlayer1, choicePlayer2);
+	showResultGame(choicePlayer1, choicePlayer2);
 	resetGameValues(resetGame, choicePlayer1, choicePlayer2, resultWinner);
 }
-
-// let winner = '';
-// let resultText = '';
-// let draw = true;
-// let isCorrect = true;
-
-// if (player1 == rock && player2 == scissors || player1 == scissors && player2 == paper || player1 == paper && player2 == rock) {
-// 	winner = 'Player1';
-// } else if (player2 == rock && player1 == scissors || player2 == scissors && player1 == paper || player2 == paper && player1 == rock) {
-// 	winner = 'Player2';
-// } else if (player1 == rock && player2 == rock || player1 == scissors && player2 == scissors || player1 == paper && player2 == paper) {
-// 	draw = false;
-// } else {
-// 	isCorrect = false;
-// }
-
-// if (isCorrect) {
-// 	resultText = 'winner: ' + winner;
-// 	if (!draw) {
-// 		resultText = 'Draw';
-// 	}
-// } else {
-// 	resultText = 'Is Not Correct'
-// }
-
-// console.log(resultText);
