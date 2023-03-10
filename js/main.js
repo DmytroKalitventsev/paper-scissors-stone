@@ -49,6 +49,8 @@ function showResultGame(choicePlayer1, choicePlayer2, resultWinner) {
 			resultWinner.innerText = 'Not selected';
 		}
 		counterWinnerPlayer();
+		choicePlayer1.innerText = '';
+		choicePlayer2.innerText = '';
 	}
 }
 
