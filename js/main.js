@@ -29,7 +29,7 @@ function showChoicePlayer(gameItemPlayer, choicePlayer, gameItems) {
 	}
 }
 
-function showResultGame(choicePlayer1, choicePlayer2) {
+function showResultGame(choicePlayer1, choicePlayer2, resultWinner) {
 	resultButton.onclick = function () {
 		if (choicePlayer1.innerText == paper && choicePlayer2.innerText == stone || choicePlayer1.innerText == scissors && choicePlayer2.innerText == paper || choicePlayer1.innerText == stone && choicePlayer2.innerText == scissors) {
 			resultWinner.innerText = 'Player1 Win!';
@@ -56,6 +56,6 @@ function resetGameValues(buttonReset, choicePlayer1, choicePlayer2, resultWinner
 function startGame() {
 	showChoicePlayer(gameItemPlayer1, choicePlayer1, gameItems);
 	showChoicePlayer(gameItemPlayer2, choicePlayer2, gameItems);
-	showResultGame(choicePlayer1, choicePlayer2);
+	showResultGame(choicePlayer1, choicePlayer2, resultWinner);
 	resetGameValues(resetGame, choicePlayer1, choicePlayer2, resultWinner);
 }
