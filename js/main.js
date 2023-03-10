@@ -1,12 +1,7 @@
 let doc = document;
 
-let paperPlayer1 = doc.querySelector('.player_1 .game-item_paper');
-let scissorsPlayer1 = doc.querySelector('.player_1 .game-item_scissors');
-let stonePlayer1 = doc.querySelector('.player_1 .game-item_stone');
-
-let paperPlayer2 = doc.querySelector('.player_2 .game-item_paper');
-let scissorsPlayer2 = doc.querySelector('.player_2 .game-item_scissors');
-let stonePlayer2 = doc.querySelector('.player_2 .game-item_stone');
+let gameItemPlayer1 = doc.querySelectorAll('.player_1 .game-item');
+let gameItemPlayer2 = doc.querySelectorAll('.player_2 .game-item');
 
 let choicePlayer1 = doc.querySelector('.player_1 .player__choice-item');
 let choicePlayer2 = doc.querySelector('.player_2 .player__choice-item');
@@ -15,47 +10,55 @@ let resultButton = doc.querySelector('.result__button');
 let resultWinner = doc.querySelector('.result__winner');
 let resetGame = doc.querySelector('.result__reset');
 
-let choiceOnePlayer = '';
-let choiceTwoPlayer = '';
+let gameItems = [
+	'Paper',
+	'Scissors',
+	'Stone'
+]
 
-let paper = 'Paper';
-let scissors = 'Scissors';
-let stone = 'Stone';
+let paper = gameItems[0];
+let scissors = gameItems[1];
+let stone = gameItems[2];
 
-paperPlayer1.onclick = function() {
-	choicePlayer1.innerText = paper;
-	choiceOnePlayer = paper;
-}
-scissorsPlayer1.onclick = function() {
-	choicePlayer1.innerText = scissors;
-	choiceOnePlayer = scissors;
-}
-stonePlayer1.onclick = function() {
-	choicePlayer1.innerText = stone;
-	choiceOnePlayer = stone;
-}
+runGame();
 
-paperPlayer2.onclick = function() {
-	choicePlayer2.innerText = paper;
-	choiceTwoPlayer = paper;
-}
-scissorsPlayer2.onclick = function() {
-	choicePlayer2.innerText = scissors;
-	choiceTwoPlayer = scissors;
-}
-stonePlayer2.onclick = function() {
-	choicePlayer2.innerText = stone;
-	choiceTwoPlayer = stone;
-}
-
-resultButton.onclick = function() {
-	if (choiceOnePlayer == paper && choiceTwoPlayer == stone || choiceOnePlayer == scissors && choiceTwoPlayer == paper || choiceOnePlayer == stone && choiceTwoPlayer == scissors) {
-		resultWinner.innerText = 'Player1';
-	} else if (choiceOnePlayer == choiceTwoPlayer) {
-		resultWinner.innerText = 'Draw';
-	} else {
-		resultWinner.innerText = 'Player2';
+function showChoicePlayer(gameItemPlayer, choicePlayer, gameItems) {
+	for (let i = 0; i < gameItemPlayer1.length; i++) {
+		gameItemPlayer[i].onclick = function () {
+			choicePlayer.innerText = gameItems[i];
+		}
 	}
+}
+
+function getResultGame(choicePlayer1, choicePlayer2) {
+	resultButton.onclick = function () {
+		if (choicePlayer1.innerText == paper && choicePlayer2.innerText == stone || choicePlayer1.innerText == scissors && choicePlayer2.innerText == paper || choicePlayer1.innerText == stone && choicePlayer2.innerText == scissors) {
+			resultWinner.innerText = 'Player1 Win!';
+		} else if (choicePlayer1.innerText == choicePlayer2.innerText) {
+			resultWinner.innerText = 'Draw';
+		} else {
+			resultWinner.innerText = 'Player2 Win!';
+		}
+	}
+}
+
+function showResultGame() {
+
+}
+
+function resetGameValues(buttonReset, choicePlayer1, choicePlayer2, resultWinner) {
+	buttonReset.onclick = function () {
+		choicePlayer1.innerText = '';
+		choicePlayer2.innerText = '';
+		resultWinner.innerText = '';
+	}
+}
+
+function runGame() {
+	showChoicePlayer(gameItemPlayer1, choicePlayer1, gameItems);
+	showChoicePlayer(gameItemPlayer2, choicePlayer2, gameItems);
+	getResultGame(choicePlayer1, choicePlayer2);
+	resetGameValues(resetGame, choicePlayer1, choicePlayer2, resultWinner);
 }
 
 // let winner = '';
