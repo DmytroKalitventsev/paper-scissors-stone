@@ -14,13 +14,19 @@ let resultWinner = doc.querySelector('.result__winner');
 let resetGame = doc.querySelector('.result__reset');
 
 let gameItems = [
-	'Paper',
-	'Scissors',
-	'Stone'
+	'paper',
+	'scissors',
+	'stone'
 ]
 let paper = gameItems[0];
 let scissors = gameItems[1];
 let stone = gameItems[2];
+
+let resultGame = {
+	paper: { win: 'stone'},
+	scissors: { win: 'paper'},
+	stone: { win: 'scissors'}
+};
 
 let counterPlayer1 = 0;
 let counterPlayer2 = 0;
@@ -37,15 +43,20 @@ function showChoicePlayer(gameItemPlayer, choicePlayer, gameItems) {
 
 function showResultGame(choicePlayer1, choicePlayer2, resultWinner) {
 	resultButton.onclick = function () {
-		if (choicePlayer1.innerText == paper && choicePlayer2.innerText == stone || choicePlayer1.innerText == scissors && choicePlayer2.innerText == paper || choicePlayer1.innerText == stone && choicePlayer2.innerText == scissors) {
+		let itemPlayer1 = choicePlayer1.innerText;
+		let itemPlayer2 = choicePlayer2.innerText;
+
+		console.log(resultGame[itemPlayer1].win, resultGame[itemPlayer2].lose);
+
+		if (resultGame[itemPlayer1].win == itemPlayer2) {
 			resultWinner.innerText = 'Player1 Win!';
 		} else {
 			resultWinner.innerText = 'Player2 Win!';
 		}
-		if (choicePlayer1.innerText == choicePlayer2.innerText) {
+		if (itemPlayer1 === itemPlayer2) {
 			resultWinner.innerText = 'Draw!';
 		}
-		if (!choicePlayer1.innerText || !choicePlayer2.innerText) {
+		if (!itemPlayer1 || !itemPlayer2) {
 			resultWinner.innerText = 'Not selected';
 		}
 		counterWinnerPlayer();
